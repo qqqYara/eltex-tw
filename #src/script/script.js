@@ -1,3 +1,23 @@
+const pageLoader = document.querySelector('.page-loader');
+
+const setPageReady = () => {
+    document.body.classList.remove('page-loading');
+
+    if (!pageLoader) {
+        return;
+    }
+
+    pageLoader.classList.add('is-hidden');
+    window.setTimeout(() => pageLoader.remove(), 300);
+};
+
+if (document.readyState === 'complete') {
+    setPageReady();
+} else {
+    window.addEventListener('load', setPageReady, { once: true });
+    window.setTimeout(setPageReady, 4000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.querySelector('.header-menu-button');
     const menu = document.querySelector('.header-menu');
