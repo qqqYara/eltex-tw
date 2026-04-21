@@ -11,6 +11,8 @@
 
 'use strict';
 
+const { existsSync } = require('fs');
+const path = require('path');
 const projectFolder = 'dist';
 const sourceFolder = '#src';
 
@@ -53,8 +55,18 @@ const vendorLibraries = [
 const vendorStyles = [
     'node_modules/swiper/swiper-bundle.css'
 ];
-const localLibraries = `${sourceFolder}/script/libraries/**/*.js`;
-const localStyles = `${sourceFolder}/style/libraries/**/*.css`;
+function optionalGlob(directory, pattern) {
+    return existsSync(path.join(__dirname, directory)) ? [pattern] : [];
+}
+
+const localLibraries = optionalGlob(
+    `${sourceFolder}/script/libraries`,
+    `${sourceFolder}/script/libraries/**/*.js`
+);
+const localStyles = optionalGlob(
+    `${sourceFolder}/style/libraries`,
+    `${sourceFolder}/style/libraries/**/*.css`
+);
 
 const paths = {
     build: {
@@ -71,8 +83,8 @@ const paths = {
             `${sourceFolder}/script/**/*.js`,
             `!${sourceFolder}/script/libraries/**/*.js`
         ],
-        libs: [...vendorLibraries, localLibraries],
-        cssLibs: [...vendorStyles, localStyles],
+        libs: [...vendorLibraries, ...localLibraries],
+        cssLibs: [...vendorStyles, ...localStyles],
         img: `${sourceFolder}/assets/images/**/*.{jpg,png,svg,gif,ico,webp}`,
         fonts: `${sourceFolder}/assets/fonts/**/*.*`
     },
@@ -83,8 +95,8 @@ const paths = {
             `${sourceFolder}/script/**/*.js`,
             `!${sourceFolder}/script/libraries/**/*.js`
         ],
-        libs: [...vendorLibraries, localLibraries],
-        cssLibs: [...vendorStyles, localStyles],
+        libs: [...vendorLibraries, ...localLibraries],
+        cssLibs: [...vendorStyles, ...localStyles],
         img: `${sourceFolder}/assets/images/**/*.{jpg,png,svg,gif,ico,webp}`,
         fonts: `${sourceFolder}/assets/fonts/**/*.*`
     },
