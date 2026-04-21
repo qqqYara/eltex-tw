@@ -1,0 +1,246 @@
+/* --------------------------------------------------------------------------
+ * >>> Footer Block :
+ * -------------------------------------------------------------------------- */
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.footer-block {
+    background-color: $secondary400-color;
+    padding: 45px 0;
+
+    @include mq('tablet', min) {
+        padding: 96px 0;
+    }
+
+    @include mq('desktop', min) {
+        padding: 126px 0 124px;
+    }
+}
+
+.footer-inner {
+    color: $white-color;
+
+    @include flexbox;
+    @include flex-direction(column);
+    gap: 42px;
+
+    @include mq('desktop', min) {
+        gap: 72px;
+    }
+}
+
+.footer-top {
+    @include flexbox;
+    @include flex-direction(column);
+    gap: 40px;
+
+    @include mq('desktop', min) {
+        @include flex-direction(row);
+        @include justify-content(space-between);
+        @include align-items(flex-start);
+        gap: 54px;
+    }
+}
+
+.footer-brand {
+    max-width: 170px;
+
+    @include mq('desktop', min) {
+        @include flex-basis(166px);
+        @include flex-shrink(0);
+        padding-top: 2px;
+    }
+}
+
+.footer-logo {
+    display: inline-block;
+    font-family: $main-font-ExtraBold;
+    font-size: 24px;
+    line-height: 165%;
+    letter-spacing: 2px;
+    color: $white-color;
+    text-decoration: none;
+    margin-bottom: 17px;
+
+    @include mq('tablet', min) {
+        font-size: 26px;
+    }
+}
+
+.footer-text {
+    font-family: $main-font-Regular;
+    font-size: 16px;
+    line-height: 185%;
+    color: $white-color;
+}
+
+.footer-nav {
+    @include flexbox;
+    @include flex-direction(column);
+    gap: 34px;
+
+    @include mq('tablet-small', min) {
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        gap: 36px 44px;
+    }
+
+    @include mq('desktop', min) {
+        @include flex-grow(1);
+        @include justify-content(space-between);
+        @include align-items(flex-start);
+        gap: 28px;
+    }
+}
+
+.footer-column {
+    min-width: 120px;
+
+    @include mq('desktop', min) {
+        min-width: auto;
+    }
+}
+
+.footer-title {
+    position: relative;
+    display: inline-block;
+    font-family: $main-font-ExtraBold;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: $white-color;
+    padding-bottom: 13px;
+    margin-bottom: 26px;
+
+    &::after {
+        @include pseudo;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $primary-color;
+    }
+}
+
+.footer-list,
+.footer-contact-list,
+.footer-social-list {
+    @include flexbox;
+    @include flex-direction(column);
+}
+
+.footer-list {
+    gap: 12px;
+
+    a {
+        font-family: $main-font-Bold;
+        font-size: 12px;
+        line-height: 145%;
+        color: $white-color;
+        letter-spacing: 1px;
+        text-decoration: none;
+        @include transition(color $anim-duration ease);
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            color: $primary-color;
+        }
+    }
+}
+
+.footer-column-contact {
+    min-width: 220px;
+}
+
+.footer-contact-list {
+    gap: 16px;
+
+    a {
+        @include inline-flex;
+        @include align-items(center);
+        gap: 14px;
+        font-family: $main-font-Medium;
+        font-size: 16px;
+        line-height: 150%;
+        color: $white-color;
+        text-decoration: none;
+        white-space: nowrap;
+        @include transition(color $anim-duration ease);
+        cursor: pointer;
+        &:hover,
+        &:focus {
+            color: $primary-color;
+        }
+    }
+
+    img {
+        display: block;
+        flex-shrink: 0;
+        width: 18px;
+        height: auto;
+        cursor: pointer;
+    }
+    span {
+        cursor: pointer;
+    }
+
+    li:first-child img {
+        width: 12px;
+    }
+
+    li:last-child img {
+        width: 13px;
+    }
+}
+
+.footer-column-social {
+    min-width: 186px;
+    .footer-title {
+        margin-bottom: 46px;
+    }
+}
+
+.footer-social-list {
+    @include flex-direction(row);
+    @include align-items(center);
+    @include flex-wrap(wrap);
+    gap: 40px;
+
+    a {
+        @include inline-flex;
+        @include align-items(center);
+        @include justify-content(center);
+        width: 24px;
+        height: 28px;
+        @include transition(opacity $anim-duration ease, transform $anim-duration ease);
+        cursor: pointer;
+        &:hover,
+        &:focus {
+            opacity: 0.7;
+            @include transform(translateY(-2px));
+        }
+    }
+
+    img {
+        display: block;
+        width: auto;
+        max-width: 24px;
+        max-height: 18px;
+        cursor: pointer;
+    }
+}
+
+.footer-copy {
+    font-family: $main-font-Regular;
+    font-size: 12px;
+    line-height: 160%;
+    color: $white-color;
+
+    @include mq('desktop', min) {
+        margin-left: 220px;
+    }
+}
+

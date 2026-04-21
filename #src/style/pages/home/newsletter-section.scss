@@ -1,0 +1,161 @@
+/* --------------------------------------------------------------------------
+ * >>> Home Page / Newsletter Section :
+ * -------------------------------------------------------------------------- */
+
+ @use '../../utils/variables' as *;
+ @use '../../utils/mixins' as *;
+ 
+.newsletter {
+     &-section {
+        // background-color: $secondary400-color;
+        padding: 56px 0 72px;
+        overflow: hidden;
+
+        @include mq('tablet', min) {
+            padding: 80px 0 96px;
+        }
+
+        @include mq('desktop', min) {
+            padding: 126px 0 140px;
+        }
+
+        .container {
+            @include flexbox;
+            @include flex-direction(column);
+            @include align-items(center);
+            @include justify-content(center);
+            text-align: center;
+        }
+
+        h2 {
+            max-width: 780px;
+            font-family: $main-font-Medium;
+            font-size: 34px;
+            line-height: 115%;
+            margin-bottom: 18px;
+
+            @include mq('tablet', min) {
+                font-size: 44px;
+            }
+
+            @include mq('desktop', min) {
+                font-size: 52px;
+                margin-bottom: 24px;
+            }
+        }
+
+        .caption {
+            font-family: $main-font-Medium;
+            font-size: 16px;
+            line-height: 163%;
+            margin-bottom: 32px;
+
+            @include mq('tablet', min) {
+                font-size: 18px;
+                margin-bottom: 45px;
+            }
+        }
+    }
+
+    &-form {
+        @include flexbox;
+        @include align-items(center);
+        width: 100%;
+        max-width: 558px;
+        margin: 0 15px;
+
+        @include mq('tablet', min) {
+            border-bottom: 2px solid $grey-color-light;
+        }
+    }
+
+    &-field {
+        position: relative;
+        width: 100%;
+
+    
+        @include mq('tablet', min) {
+            padding-left: 18px;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            font-family: $main-font-Medium;
+            font-size: 14px;
+            line-height: 120%;
+
+            @include mq('tablet', min) {
+                font-size: 18px;
+            }
+
+            @include placeholder-content {
+                font-family: $main-font-ExtraBold;
+                color: $grey-color;
+                text-transform: uppercase;
+                font-size: 14px;
+                letter-spacing: 3px;
+                @include mq('tablet', min) {
+                    font-size: 18px;
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+
+    &-submit {
+        @include inline-flex;
+        @include align-items(center);
+        @include justify-content(center);
+        gap: 12px;
+        width: 100%;
+        min-height: 48px;
+        padding: 0 18px;
+        font-family: $main-font-ExtraBold;
+        font-size: 10px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: $primary-color;
+        border-left: 1px solid $grey-color-light;
+        background: linear-gradient(180deg, $white-color 0%, $grey-color-light-2 100%);
+        transition: background-color $anim-duration;
+
+        @include mq('tablet', min) {
+            max-width: 226px;
+            min-height: 54px;
+            padding: 0 27px;
+            font-size: 12px;
+            letter-spacing: 6px;
+            gap: 20px;
+        }
+
+        span {
+            @include inline-flex;
+            @include align-items(center);
+            @include justify-content(center);
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: transparent;
+            cursor: pointer;
+            color: $primary-color;
+            border: 1px solid rgba($primary-color, 0.5);
+            transition: background-color $anim-duration, color $anim-duration;
+            @include mq('tablet', min) {
+                width: 27px;
+                height: 27px;
+            }
+        }
+        &:hover {
+            @include mq('tablet', min) {
+                span {
+                    background-color: rgba($primary-color, 0.5);
+                    color: $white-color;
+                }
+            }
+        }
+    }
+
+    
+}

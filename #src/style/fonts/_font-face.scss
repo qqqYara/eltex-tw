@@ -1,0 +1,81 @@
+/* Bundled font-face declarations for the main stylesheet. */
+@font-face {
+  font-family: 'MPLUS1p-Thin';
+  src: url('../assets/fonts/MPLUS1p/MPLUS1p-Thin.woff2') format('woff2'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Thin.woff') format('woff'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MPLUS1p-Light';
+  src: url('../assets/fonts/MPLUS1p/MPLUS1p-Light.woff2') format('woff2'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Light.woff') format('woff'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MPLUS1p-Regular';
+  src: url('../assets/fonts/MPLUS1p/MPLUS1p-Regular.woff2') format('woff2'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Regular.woff') format('woff'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MPLUS1p-Medium';
+  src: url('../assets/fonts/MPLUS1p/MPLUS1p-Medium.woff2') format('woff2'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Medium.woff') format('woff'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MPLUS1p-Bold';
+  src: url('../assets/fonts/MPLUS1p/MPLUS1p-Bold.woff2') format('woff2'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Bold.woff') format('woff'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MPLUS1p-ExtraBold';
+  src: url('../assets/fonts/MPLUS1p/MPLUS1p-ExtraBold.woff2') format('woff2'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-ExtraBold.woff') format('woff'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MPLUS1p-Black';
+  src: url('../assets/fonts/MPLUS1p/MPLUS1p-Black.woff2') format('woff2'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Black.woff') format('woff'),
+    url('../assets/fonts/MPLUS1p/MPLUS1p-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'NoticiaText-Italic';
+  src: url('../assets/fonts/NoticiaText/NoticiaText-Italic.woff2') format('woff2'),
+    url('../assets/fonts/NoticiaText/NoticiaText-Italic.woff') format('woff'),
+    url('../assets/fonts/NoticiaText/NoticiaText-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+  font-style: italic;
+}

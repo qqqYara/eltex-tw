@@ -1,0 +1,40 @@
+  /* --------------------------------------------------------------------------
+ * >>> TABLE OF UTILS : 
+ * -------------------------------------------------------------------------- */
+
+/* Libraries */
+/* -------------------------------------------------------------------------- */
+
+// @use 'libraries/animate/animate';
+// @use 'libraries/swiper-6.7.0/swiper';
+// @use 'libraries/fancybox/fancybox';
+
+/* Utils */
+/* -------------------------------------------------------------------------- */
+
+@use 'fonts/font-face';
+@use 'utils/reset';
+@use 'utils/variables';
+@use 'utils/mixins';
+@use 'utils/skeleton';
+
+/* Components && UI Styles */
+/* -------------------------------------------------------------------------- */
+
+@use 'components/header';
+@use 'components/footer';
+@use 'UI/UI-Kit';
+@use 'UI/animation';
+
+/* Pages Styles */
+/* -------------------------------------------------------------------------- */
+
+// Home page
+@use 'pages/home/home';
+@use 'pages/home/hero-section';
+@use 'pages/home/intro-section';
+@use 'pages/home/features-section';
+@use 'pages/home/newsletter-section';
+
+// Service page
+// @use 'pages/404';

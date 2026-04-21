@@ -1,0 +1,76 @@
+/* --------------------------------------------------------------------------
+ * >>> UI Kit :
+ * -------------------------------------------------------------------------- */
+
+@use 'sass:color';
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.section-inner {
+    @include flexbox;
+    @include flex-direction(column);
+    @include align-items(start);
+    max-width: 460px;
+}
+.title-small {
+    font-family: $main-font-ExtraBold;
+    font-size: 10px;
+    line-height: 1;
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    @include mq('tablet', min) {
+        font-size: 12px;
+    }
+}
+h2 {
+    font-family: $main-font-Medium;
+    font-size: 30px;
+    color: $header-color;
+    @include mq('tablet', min) {
+        font-size: 45px;
+    }
+}
+.title-caption {
+    font-family: $main-font-ExtraBold;
+    font-size: 16px;
+    line-height: 163%;
+    color: $header-color;
+    @include mq('tablet', min) {
+        font-size: 18px;
+    }
+}
+.text-content {
+    font-family: $main-font-Regular;
+    font-size: 16px;
+    line-height: 163%;
+    color: $text-color;
+    @include mq('tablet', min) {
+        font-size: 18px;
+    }
+}
+.button-primary {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+    height: 30px;
+    font-family: $main-font-Medium;
+    font-size: 11px;
+    color: $white-color;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: $primary-color;
+    border: none;
+    padding: 0 25px;
+    border-radius: 24px;
+    transition: background-color $anim-duration;
+    @include mq('tablet', min) {
+        height: 45px;
+        font-size: 13px;
+        padding: 0 45px;
+        border-radius: 36px;
+    }
+    &:hover {
+        background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+}

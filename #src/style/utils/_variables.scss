@@ -1,0 +1,49 @@
+/* --------------------------------------------------------------------------
+ * >>> Variables :
+ * -------------------------------------------------------------------------- */
+// Fonts
+$main-font-light: 'MPLUS1p-Light';
+$main-font-Regular: 'MPLUS1p-Regular';
+$main-font-Medium: 'MPLUS1p-Medium';
+$main-font-SemiBold: 'MPLUS1p-SemiBold';
+$main-font-Bold: 'MPLUS1p-Bold';
+$main-font-Black: 'MPLUS1p-Black';
+$main-font-ExtraBold: 'MPLUS1p-ExtraBold';
+$main-font-Thin: 'MPLUS1p-Thin';
+$secondary-font-italic: 'NoticiaText-Italic';
+
+// Animations
+$anim-duration: 0.3s;
+
+// Colors
+$primary-color: #F61067;
+$secondary100-color: #5E239D;
+$secondary200-color: #3A0475;
+$secondary300-color: #30124E;
+$secondary400-color: #150433;
+$white-color: #ffffff;
+$header-color: #30233D;
+$text-color: #776C82;
+$grey-color: #9B94A3;
+$grey-color-light: #F4F4ED;
+$grey-color-light-2: #F2F2F2;
+
+//media
+$breakpoints: (
+  "phone-se": 375px,
+  "phone": 400px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 992px,
+  "leptop": 1024px,
+  "desktop": 1200px,
+  "desktop-wide": 1440px,
+  "desktop-large": 1680px,
+  "desktop-fullhd": 1920px
+);
+$breakpoints-height: (
+  "leptop": 600px,
+  "desktop": 750px,
+);

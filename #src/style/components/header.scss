@@ -1,0 +1,213 @@
+/* --------------------------------------------------------------------------
+ * >>> Header Block:
+ * -------------------------------------------------------------------------- */
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+body.menu-open {
+    overflow: hidden;
+}
+
+.header-block {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    color: $white-color;
+    padding-top: 20px;
+    
+    @include mq('tablet', min) {
+        padding-top: 40px;
+    }
+    @include mq('desktop', min) {
+        padding-top: 61px;
+    }
+}
+.header-inner {
+    @include flexbox;
+    @include justify-content(space-between);
+    @include align-items(center);
+}
+.header-logo {
+    font-family: $main-font-Black;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: $white-color;
+    @include mq('tablet', min) {
+    }
+    @include mq('desktop', min) {
+        height: 47px;
+        font-size: 24px;
+    }
+}
+.header-phone {
+    display: none;
+    @include mq('tablet', min) {
+        @include flexbox;
+        @include align-items(center);
+        font-family: $main-font-Bold;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: $white-color;
+        white-space: nowrap;
+        opacity: .8;
+        transition: opacity $anim-duration;
+        cursor: pointer;
+    }
+    @include mq('desktop', min) {
+        padding-bottom: 15px;
+    }
+    &:hover {
+        opacity: 1;
+    }
+    img {
+        margin-right: 18px;
+    }
+}
+.header-menu {
+    ul {
+        @include flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+        li {
+            margin-right: 40px;
+            &:last-child {
+                margin-right: 0;
+            }
+            a {
+                position: relative;
+                font-family: $main-font-Bold;
+                font-size: 14px;
+                letter-spacing: 2px;
+                color: $white-color;
+                opacity: .8;
+                transition: opacity $anim-duration;
+                cursor: pointer;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -6px;
+                    left: 48%;
+                    width: 80%;
+                    height: 1px;
+                    @include transform(translate(-50%, 0%));
+                    background-color: $white-color;
+                    transition: opacity $anim-duration;
+                    opacity: 0;
+                }
+                &:hover {
+                    opacity: 1;
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+                &.active {
+                    opacity: 1;
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    @include mq('tablet', max) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 90;
+        width: min(320px, 100%);
+        height: 100vh;
+        padding: 120px 30px 40px;
+        background-color: $primary-color;
+        @include flexbox;
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include align-items(center);
+        transform: translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform $anim-duration ease, opacity $anim-duration ease, visibility $anim-duration ease;
+        &.active {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        ul {
+            @include flex-direction(column);
+            li {
+                margin-right: 0;
+                margin-bottom: 30px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                a {
+                    font-size: 24px;
+                    color: $white-color;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    @include mq('tablet', min) {
+        @include flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+    }
+    @include mq('desktop', min) {
+        padding-bottom: 15px;
+    }
+
+}
+.header-menu-button {
+    display: block;
+    position: relative;
+    z-index: 100;
+    width: 27px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    @include mq('tablet', min) {
+        display: none;
+    }
+    @include mq('desktop', min) {
+    }
+    .line-one,
+    .line-two,
+    .line-three {
+        position: absolute;
+        right: 0;
+        width: 27px;
+        height: 2px;
+        background-color: $white-color;
+        transition: top $anim-duration ease, width $anim-duration ease, transform $anim-duration ease, opacity $anim-duration ease;
+    }
+    .line-one {
+        top: 0;
+    }
+    .line-two {
+        top: 9px;
+    }
+    .line-three {
+        top: 18px;
+        width: 18px;
+    }
+    &.active {
+        .line-one {
+            top: 9px;
+            transform: rotate(45deg);
+        }
+        .line-two {
+            opacity: 0;
+        }
+        .line-three {
+            top: 9px;
+            width: 27px;
+            transform: rotate(-45deg);
+        }
+    }
+}

@@ -1,0 +1,229 @@
+/* --------------------------------------------------------------------------
+ * >>> Home Page / Hero Section :
+ * -------------------------------------------------------------------------- */
+
+@use '../../utils/variables' as *;
+@use '../../utils/mixins' as *;
+
+.hero {
+    &-section {
+        @include flexbox;
+        @include align-items(center);
+        @include justify-content(center);
+        height: 100vh;
+        background-color: $secondary100-color;
+        background-image: url('../assets/images/pages/home/first-screen-bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding-top: 40px;
+        overflow: hidden;
+    
+        @include mq('tablet', min) {
+            padding-top: 69px;
+        }
+        @include mq('desktop', min) {
+            padding-top: 108px;
+        }
+        &-inner {
+            @include flexbox;
+            @include flex-direction(column);
+            @include align-items(center);
+            position: relative;
+            width: 100%;
+            @include mq('tablet', min) {
+                @include align-items(start);
+            }
+        }
+        .hero-caption {
+            font-family: $main-font-ExtraBold;
+            font-size: 12px;
+            line-height: 118%;
+            letter-spacing: 4px;
+            color: $white-color;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            @include mq('tablet', min) {
+                font-size: 14px;
+                text-align: left;
+            }
+        }
+        h1 {
+            font-family: $main-font-Black;
+            font-size: 60px;
+            line-height: 118%;
+            color: $white-color;
+            text-align: center;
+            margin-bottom: 24px;
+            @include mq('tablet', min) {
+                font-size: 80px;
+                text-align: left;
+                margin-bottom: 40px;
+            }
+            @include mq('desktop', min) {
+                font-size: 99px;
+                margin-bottom: 70px;
+            }
+            span {
+                color: $primary-color;
+            }
+        }
+    }
+    &-button-wrap {
+        @include flexbox;
+        @include align-items(center);
+        position: relative;
+        @include mq('tablet', max) {
+            width: 100%;
+            padding: 14px 24px;
+            border: 1px solid rgba($white-color, 0.25);
+        }
+        @include mq('tablet', min) {
+            padding: 20px 30px 20px 0;
+            border-left: 0;
+        }
+        @include mq('desktop', min) {
+            padding: 30px 39px 30px 0;
+        }
+        p {
+            font-family: $main-font-Regular;
+            font-size: 14px;
+            line-height: 160%;
+            color: $white-color;
+            margin-bottom: 0;
+            @include mq('tablet', min) {
+                font-size: 16px;
+            }
+            @include mq('desktop', min) { 
+                font-size: 18px;
+            }
+        }
+    }
+    &-button {
+        @include inline-flex;
+        @include align-items(center);
+        @include justify-content(center);
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        border: 0; 
+        border-radius: 50%;
+        background: transparent;
+        color: $white-color;
+        cursor: pointer;
+        transition: background-color $anim-duration, border-color $anim-duration;
+        border: 1px solid rgba($white-color, 0.5);
+        margin-left: 10px;
+        @include mq('tablet', min) {
+            width: 35px;
+            height: 35px;
+            margin-left: 20px;
+            &:before {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 1000%;
+                height: 100%;
+                border: 1px solid rgba($white-color, 0.25);
+                transition: border-color $anim-duration;
+            }
+        }
+        @include mq('desktop', min) {
+            width: 48px;
+            height: 48px;
+            margin-left: 40px;
+        }
+        &:hover {
+            background-color: rgba($white-color, 0.5);
+            border-color: $white-color;
+            color: $secondary400-color;
+            &:before {
+                border: 1px solid rgba($white-color, 0.5);
+            }
+        }
+        svg {
+            display: block;
+            width: 10px;
+            height: 6px;
+            @include mq('tablet', min) {
+                width: 12px;
+                height: 6px;
+            }
+            @include mq('desktop', min) {
+                width: 15px;
+                height: 8px;
+            }
+        }
+    }
+    &-scroll-more {
+        @include inline-flex;
+        @include flex-direction(column);
+        @include align-items(center);
+        @include justify-content(center);
+        text-decoration: none;
+        color: $white-color;
+        cursor: pointer;
+        transition: opacity $anim-duration;
+        gap: 20px;
+
+        @include mq('tablet', max) {
+            padding-top: 40px;
+        }
+        @include mq('tablet', min) {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            gap: 16px;
+            transform: translateY(-50%);
+            gap: 40px;
+            z-index: 2;
+        }
+
+        &:hover {
+            opacity: 0.75;
+        }
+
+        span:not(.hero-scroll-more-icon) {
+            font-family: $main-font-ExtraBold;
+            font-size: 12px;
+            line-height: 1;
+            color: $white-color;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            cursor: pointer;
+            @include mq('tablet', min) {
+                font-size: 14px;
+                letter-spacing: 6px;
+                writing-mode: vertical-lr;
+            }
+        }
+
+        &-icon {
+            @include inline-flex;
+            @include align-items(center);
+            @include justify-content(center);
+            width: 15px;
+            height: 34px;
+            animation: hero-scroll-arrow-float 1.8s ease-in-out infinite;
+
+            @include mq('tablet', min) {
+                width: 21px;
+                height: 46px;
+            }
+        }
+
+        svg {
+            display: block;
+            width: 15px;
+            height: 34px;
+            color: $white-color;
+
+            @include mq('tablet', min) {
+                width: 21px;
+                height: 46px;
+            }
+        }
+    }
+}

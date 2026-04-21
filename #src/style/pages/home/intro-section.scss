@@ -1,0 +1,116 @@
+/* --------------------------------------------------------------------------
+ * >>> Home Page / Intro Section :
+ * -------------------------------------------------------------------------- */
+
+@use '../../utils/variables' as *;
+@use '../../utils/mixins' as *;
+
+.intro {
+    &-section {
+        padding: 60px 0;
+        @include mq('tablet', min) {
+            padding: 100px 0 80px;
+        }
+        @include mq('desktop', min) {
+            padding: 180px 0 135px;
+        }
+        .title-small {
+            margin-bottom: 12px;
+            @include mq('tablet', min) {
+                margin-bottom: 18px;
+            }
+        }
+        h2 {
+            margin-bottom: 18px;
+            @include mq('desktop', min) {
+                line-height: 160%;
+            }
+        }
+        .title-caption {
+            margin-bottom: 24px;
+            @include mq('tablet', min) {
+                margin-bottom: 36px;
+            }
+        }
+        .text-content {
+            margin-bottom: 36px;
+            @include mq('tablet', min) {
+                margin-bottom: 54px;
+            }
+        }
+        .container {
+            @include flexbox;
+            @include flex-direction(column);
+            @include align-items(center);
+            @include mq('leptop', min) {
+                @include flex-direction(row);
+                @include align-items(flex-start);
+            }
+        }
+        .section-inner {
+            position: relative;
+        }
+        &-image {
+            display: none;
+            @include mq('leptop', min) {
+                display: block;
+                position: absolute;
+                top: -36px;
+                left: calc(100% + 128px);
+                z-index: 1;
+                width: 460px;
+                @include mq('desktop-wide', min) {
+                    left: calc(100% + 128px);
+                }
+            }
+            .quote-text-bg {
+                display: none;
+                @include mq('desktop-wide', min) {
+                    display: block;
+                    position: absolute;
+                    top: -36px;
+                    right: -245px;
+                    width: 441px;
+                    height: 540px;
+                    background-color: $secondary300-color;
+                }
+            }
+            .quote-text {
+                display: none;
+                @include mq('desktop-wide', min) {
+                    @include flexbox;
+                    @include flex-direction(column);
+                    @include align-items(center);
+                    @include justify-content(space-around);
+                    position: absolute;
+                    top: 0;
+                    right: -245px;
+                    width: 377px;
+                    height: 504px;
+                    background-color: $secondary300-color;
+                    padding: 32px 24px;
+                    text-align: center;
+                    padding: 58px 60px 50px;
+                    gap: 34px;
+                }
+                .quote-mark {
+                    width: 58px;
+                    height: 53px;
+                    &-bottom {
+                        transform: rotate(180deg);
+                    }
+                }
+                p {
+                    margin: 0;
+                    font-family: $secondary-font-italic;
+                    font-size: 22px;
+                    line-height: 160%;
+                    color: $white-color;
+                }
+            }
+            img {
+                position: relative;
+            }
+        }
+    }
+}
