@@ -230,7 +230,7 @@ const build = series(
     clean,
     parallel(html, css, scripts, images, fonts, scriptsLibraries, stylesLibraries)
 );
-const dev = parallel(build, watchFiles, livereload);
+const dev = series(build, parallel(watchFiles, livereload));
 
 /* -------------------------------------------------------------------------
  * Define default task that can be called by just running `gulp` from cli
