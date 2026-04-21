@@ -44,6 +44,14 @@ async function loadPostcssNesting() {
     return postcssNesting;
 }
 
+let imagemin;
+async function loadImagemin() {
+    if (!imagemin) {
+        imagemin = await import('gulp-imagemin');
+    }
+    return imagemin;
+}
+
 
 /* Define paths & directories
  * ========================================================================= */
@@ -85,7 +93,7 @@ const paths = {
         ],
         libs: [...vendorLibraries, ...localLibraries],
         cssLibs: [...vendorStyles, ...localStyles],
-        img: `${sourceFolder}/assets/images/**/*.{jpg,png,svg,gif,ico,webp}`,
+        img: `${sourceFolder}/assets/images/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,
         fonts: `${sourceFolder}/assets/fonts/**/*.*`
     },
     watch: {
@@ -97,7 +105,7 @@ const paths = {
         ],
         libs: [...vendorLibraries, ...localLibraries],
         cssLibs: [...vendorStyles, ...localStyles],
-        img: `${sourceFolder}/assets/images/**/*.{jpg,png,svg,gif,ico,webp}`,
+        img: `${sourceFolder}/assets/images/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,
         fonts: `${sourceFolder}/assets/fonts/**/*.*`
     },
     clean: projectFolder,
@@ -173,9 +181,30 @@ async function stylesLibraries() {
 /* Images Task
  * ========================================================================= */
 
-function images() {
+async function images() {
+    const imageminModule = await loadImagemin();
+
     return src(paths.src.img, { allowEmpty: true, encoding: false })
         .pipe(plumber())
+        .pipe(
+            imageminModule.default([
+                imageminModule.gifsicle({ interlaced: true }),
+                imageminModule.mozjpeg({ quality: 75, progressive: true }),
+                imageminModule.optipng({ optimizationLevel: 5 }),
+                imageminModule.svgo({
+                    plugins: [
+                        {
+                            name: 'preset-default',
+                            params: {
+                                overrides: {
+                                    removeViewBox: false,
+                                },
+                            },
+                        },
+                    ],
+                }),
+            ])
+        )
         .pipe(dest(paths.build.img))
         .pipe(browserSync.stream());
 }
